@@ -18,4 +18,9 @@ const createUser = async (req, res) => {
   return res.status(200).json(user);
 };
 
-module.exports = createUser;
+const getUser = async (req, res) => {
+    const users = await userModel.find();
+    return res.status(200).json(users);
+}
+
+module.exports = {createUser : createUser, getUser : getUser};
