@@ -1,17 +1,16 @@
 const taskModel = require("../models/taskModel");
 
 const createTask = async (req, res) => {
-  const task = taskModel.create({
+  const task = await taskModel.create({
     title: req.body.title,
     description: req.body.description,
-    dueDate: req.body.dueData,
+    dueDate: req.body.dueDate,
     priority: req.body.priority,
     status: req.body.status,
-    userId: req.user._id,
   });
-  const taskData = await task.save();
+  const taskData = task.save();
 
-  return res.status(200).json(taskData);
+  return res.status(200).json(task);
 };
 
 module.exports = createTask;
