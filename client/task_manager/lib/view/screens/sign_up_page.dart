@@ -7,6 +7,8 @@ class SignUpPage extends StatelessWidget {
   static const routeName = '/sign-up';
   const SignUpPage({super.key});
 
+  
+
   @override
   Widget build(BuildContext context) {
     TextEditingController firstNameController = TextEditingController();
@@ -15,6 +17,7 @@ class SignUpPage extends StatelessWidget {
     TextEditingController emailController = TextEditingController();
     TextEditingController passwordController = TextEditingController();
     TextEditingController confirmPasswordController = TextEditingController();
+    final formKey = GlobalKey<FormState>();
     return Scaffold(
       backgroundColor: AppColors.kBackgroundColor,
       appBar: AppBar(
@@ -34,6 +37,7 @@ class SignUpPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Form(
+              key: formKey,
               child: Column(
                 children: [
                   CustomTextField(

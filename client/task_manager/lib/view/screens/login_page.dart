@@ -13,6 +13,7 @@ class LoginPage extends StatelessWidget {
     final TextEditingController emailController = TextEditingController();
     final TextEditingController passController = TextEditingController();
     bool obsureText = true;
+    final formKey = GlobalKey<FormState>();
     return Scaffold(
       backgroundColor: AppColors.kBackgroundColor,
       body: Center(
@@ -37,6 +38,7 @@ class LoginPage extends StatelessWidget {
               height: 20,
             ),
             Form(
+              key: formKey,
               child: Column(
                 children: [
                   CustomTextField(
