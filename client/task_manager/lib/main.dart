@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:task_manager/generate_route.dart';
 import 'package:task_manager/themes/theme.dart';
-import 'package:task_manager/view/screens/login_page.dart';
+import 'package:task_manager/view/screens/check_login_state.dart';
 import 'package:window_size/window_size.dart';
 
 
@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
       title: 'Task Management',
       debugShowCheckedModeBanner: false,
       theme: ThemesTheme.themeDatalight,
-      home: const LoginPage(),
+      home: const CheckLoginState(),
     );
   }
 }

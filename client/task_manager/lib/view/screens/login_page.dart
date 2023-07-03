@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:task_manager/controller/AuthController.dart';
 import 'package:task_manager/themes/colors.dart';
 import 'package:task_manager/themes/textstyle.dart';
 import 'package:task_manager/view/widgets/custom_textfield.dart';
@@ -10,6 +11,7 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Get.put(AuthController());
     final TextEditingController emailController = TextEditingController();
     final TextEditingController passController = TextEditingController();
     bool obsureText = true;
@@ -64,7 +66,14 @@ class LoginPage extends StatelessWidget {
               height: 30,
             ),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () async {
+                final response = await Get.find<AuthController>()
+                    .loginIn(emailController.text, passController.text);
+                if (response == true) {
+                  await Get.find<AuthController>().autoLoginIn();
+                  Get.toNamed('/homepage');
+                }
+              },
               child: SizedBox(
                 width: 60,
                 height: 35,
